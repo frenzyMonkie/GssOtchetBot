@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<link>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/main.css">
+    <script defer src="data.js"></script>
+    <script defer src="submit.js"></script>
+</head>
+<body>
+    <section class="main">
+        <div class="container">
+            <h1>Отчёт</h1>
+            <form action="https://sheet.best/api/sheets/f32dc167-6732-46ae-b9aa-aa31f65d4bc1" method="post" class="test-form" id="test-form">
+                <div class="inputs">
+                    <input list="test-project" name="Объект" id="test-project">
+                    <datalist placeholder="Объект" id="test-project"> <!-- Выбор объекта -->
+                        <option value="Волоколамское ш.">
+                        <option value="Амурска">
+                        <option value="Усть-луга">
+                      </datalist>
+                    <input type="date" name="Дата" id="test-date"> <!-- Выбор даты отчёта -->
+                    <textarea placeholder="Отчёт" name="Комментарий" id="test-data"> </textarea><!-- Внесение отчёта -->
+                </div>
+                <div class="controls">
+                    <input type="reset" value="Сбросить" id="test-reset">
+                    <input type="submit" value="Отправить" id="test-submit">
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

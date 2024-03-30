@@ -1,0 +1,40 @@
+section.main {
+    max-width: 768px;
+    margin: auto;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    flex-direction: column;
+}
+form {
+
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+form .inputs {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+}
+h1 {
+    padding: 15px;
+    background: #89898952;
+    width: 80%;
+    font-size: 20px;
+    text-align: center;
+}
+input {
+    height: 20px;
+}
+textarea {
+    height: 120px;
+}

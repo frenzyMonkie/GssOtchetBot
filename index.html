@@ -14,14 +14,14 @@
             <h1>Отчёт</h1>
             <form action="https://sheet.best/api/sheets/f32dc167-6732-46ae-b9aa-aa31f65d4bc1" method="post" class="test-form" id="test-form">
                 <div class="inputs">
-                    <input list="test-project" name="Объект" id="test-project">
+                    <input placeholder="Объект" list="test-project" name="Объект" id="test-project">
                     <datalist placeholder="Объект" id="test-project"> <!-- Выбор объекта -->
                         <option value="Волоколамское ш.">
                         <option value="Амурска">
                         <option value="Усть-луга">
                       </datalist>
-                    <input type="date" name="Дата" id="test-date"> <!-- Выбор даты отчёта -->
-                    <textarea placeholder="Отчёт" name="Комментарий" id="test-data"> </textarea><!-- Внесение отчёта -->
+                    <input type="date" name="Дата" id="test-date" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}"> <!-- Выбор даты отчёта -->
+                    <textarea placeholder="Отчёт" name="Комментарий" id="test-data"></textarea><!-- Внесение отчёта -->
                 </div>
                 <div class="controls">
                     <input type="reset" value="Сбросить" id="test-reset">

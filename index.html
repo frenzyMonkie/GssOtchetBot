@@ -6,7 +6,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
     <script defer src="data.js"></script>
-    <script defer src="submit.js"></script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
@@ -16,10 +15,10 @@
             <form action="https://sheet.best/api/sheets/f32dc167-6732-46ae-b9aa-aa31f65d4bc1" method="post" class="test-form" id="test-form">
                 <div class="inputs">
                     <!-- <input placeholder="Объект" list="test-project" name="Объект" id="test-project"> -->
-                    <select autofocus required name="Объект" id="test-project">
+                    <select autofocus required name="Объект" id="test-project" >
+                        <option disabled selected hidden value="...">Выбрать объект</option>
                         <option value="Амурская">Амурская</option>
                         <option value="Волоколамское ш.">Волоколамское ш.</option>
-                        <option selected value="...">Выбрать объект</option>
                         <option value="Усть-луга">Усть-луга</option>
                       </select>
                     <!-- <datalist placeholder="Объект" id="test-project">
@@ -27,7 +26,7 @@
                         <option value="Амурска">
                         <option value="Усть-луга">
                       </datalist> -->
-                    <input required type="date" name="Дата" id="test-date" > <!-- Выбор даты отчёта onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}"-->
+                    <input required type="date" name="Дата" id="test-date"> <!-- Выбор даты отчёта onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}"-->
                     <textarea required placeholder="Отчёт" name="Комментарий" id="test-data"></textarea><!-- Внесение отчёта -->
                 </div>
                 <div class="controls">

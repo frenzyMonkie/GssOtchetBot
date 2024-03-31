@@ -1,5 +1,15 @@
 // https://sheet.best/admin/connection-detail/f32dc167-6732-46ae-b9aa-aa31f65d4bc1
 
+// var today = new Date();
+// var dd = String(today.getDate()).padStart(2, '0');
+// var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+// var yyyy = today.getFullYear();
+
+// today = mm + '/' + dd + '/' + yyyy;
+// // document.write(today);
+// dateField = page.getElementById("test-date")
+document.getElementById('test-date').valueAsDate = new Date();
+
 // class formSettings {
 //     constructor (page) {
 //         this.form = page.getElementById("test-form")

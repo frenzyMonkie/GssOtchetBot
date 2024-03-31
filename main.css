@@ -37,7 +37,10 @@ input {
     height: 100%;
 }
 textarea {
-    height: 120px;
+    max-width: 100%;
+    min-height: 240px;
+    height: 300px;
+    max-height: 100%;
 }
 
 

@@ -5,35 +5,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="animtabs.css">
+    <link rel="stylesheet" href="tabs.css">
     <script defer src="data.js"></script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
     <section class="main">
+        <!-- Соответственно, имеем ситуацию, когда в основном меню нам нужны кнопки:
+            1. Сформировать отчёт - доступно только доверенным (после нажатия будет выбор из списка объектов, к которым прикреплен) - т.к. ошибиться с выбором объекта тут проще чем в кнопочном.
+            2. Просмотреть состояние объекта = последний подтвержденный отчёт (полученный системой и подтвержденный на целостность) - доступно всем.
+            Либо: состояние объекта - уже в форме подсказок в поле формирования отчёта
+            3. Просмотреть историю отчётов - доступно всем.
+        -->
+        <!-- При нажатии на дату:
+        1. Всегда можно просмотреть историю
+        2. Можно изменить данные, но только с подтверждением оператора
+            - либо с помощью запроса на редактирование, и тогда оператор создает задачу с установленной датой
+            - либо опертор как в CRM смотрит заявки на редактирование и либо подтверждает их, либо отклоняет
+            - либо совместно, сначала заявка потом задача -->
         <div class="container">
-            <h1>Отчёт</h1>
-            <form action="https://sheet.best/api/sheets/f32dc167-6732-46ae-b9aa-aa31f65d4bc1" method="post" class="test-form" id="test-form">
-                <div class="inputs">
-                    <!-- <input placeholder="Объект" list="test-project" name="Объект" id="test-project"> -->
-                    <select autofocus required name="Объект" id="test-project" >
-                        <option disabled selected hidden value="...">Выбрать объект</option>
-                        <option value="Амурская">Амурская</option>
-                        <option value="Волоколамское ш.">Волоколамское ш.</option>
-                        <option value="Усть-луга">Усть-луга</option>
-                      </select>
-                    <!-- <datalist placeholder="Объект" id="test-project">
-                        <option value="Волоколамское ш.">
-                        <option value="Амурска">
-                        <option value="Усть-луга">
-                      </datalist> -->
-                    <input required type="date" name="Дата" id="test-date"> <!-- Выбор даты отчёта onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}"-->
-                    <textarea required placeholder="Отчёт" name="Комментарий" id="test-data"></textarea><!-- Внесение отчёта -->
+            <!-- <div class="sticky-header">
+
+            </div> -->
+            <h1><span>Ср, 20 мар.</span><span>Сформировать отчёт</span></h1>
+            <!-- Заполняются все секции и подтверждаются изменения -->
+            <!-- Отчёт сохраняется в локалсторадж, чтобы в случае слабой сети можно было снова отправить. -->
+            <!-- По кнопке формирования отчёта
+                выбор полей для отправки в чат (в базу отправятся все поля)
+                открывается окно с текстовым представлением как оно будет в телеграме,
+                кнопки назад и отправить. -->
+            <!-- После отправки получаем подтверждение. Возможно сравнение хэша ответа с хешем отправленного сообщения для удостоверения получения, и далее по ситуации -->
+
+            <!-- <div class="select">
+                <form action="https://sheet.best/api/sheets/f32dc167-6732-46ae-b9aa-aa31f65d4bc1" method="post" class="test-form" id="test-form">
+                    <div class="select-inputs">
+                        <select autofocus required name="Объект" id="test-project" >
+                            <option disabled selected hidden value="...">Выбрать объект</option>
+                            <option value="Амурская">Амурская</option>
+                            <option value="Волоколамское ш.">Волоколамское ш.</option>
+                            <option value="Усть-луга">Усть-луга</option>
+                        </select>
+                        <input required type="date" name="Дата" id="test-date">
+                    </div>
+                </form>
+            </div> -->
+            <div class="tabs-container">
+                <div class="tab-box">
+                    <!-- <div id="content-0">
+                        Приём "задачи" на учёт состояния отделом водопонижения. Заполнил - подтвердил - задача ушла как выполненная.
+                        Задачи могут быть установлены автоматически на ежедневной основе при старте проекта и указании ответственного.
+                        Либо могут быть направлены операторами по их инициативе или их задаче.
+                        <br><br>
+                        Но эту секцию лучше добавить потом, т.к. требуется UI для операторов и довольно таки многосоставная система.
+                    </div> -->
+                    <button class="tab-btn active">Комментарии</button>
+                    <button class="tab-btn">МСГ</button>
+                    <button class="tab-btn">Техника</button>
+                    <button class="tab-btn">Расход</button>
+                    <button class="tab-btn">Площадка</button>
+                    <button class="tab-btn">Показатели</button>
+                    <div class="line" id="line"></div>
                 </div>
-                <div class="controls">
-                    <input type="reset" value="Сбросить" id="test-reset">
-                    <input type="submit" value="Отправить" id="test-submit">
+
+                <div class="decorative"></div>
+
+                <div class="content-box">
+                    <div class="content active">
+                        <form action="https://sheet.best/api/sheets/f32dc167-6732-46ae-b9aa-aa31f65d4bc1" method="post" class="test-form" id="test-form">
+                            <div class="tabs-inputs">
+                                <textarea required placeholder="Отчёт" name="Комментарий" id="test-data"></textarea><!-- Внесение отчёта -->
+                            </div>
+                            <div class="controls">
+                                <input type="reset" value="Сбросить" id="test-reset">
+                                <input type="submit" value="Отправить" id="test-submit">
+                            </div>
+                        </form>
+                        Чтобы было сначала подтвердить, а потом уже сформировать и отправить отчёт, просмотрев как он будет выглядеть в телеграме.
+                        При формировании можно исключить те или иные категории. Например, если не нужны УГВ по просьбе руководителя - их можно не ставить.
+                        <br>
+                        <br>
+                        Комментарий - например работы вне МСГ, уточнения к насосам и скважинам и тд. Возможно даже добавить секции для комментирования общих категорий отдельно.
+                    </div>
+                    <div class="content">
+                        Секция МСГ и возможно прочих работ
+                    </div>
+                    <div class="content">
+                        Приём "задачи" на прием и отпуск машины отделом диспетчерской. Заполнил - подтвердил - задача ушла как выполненная.
+                        Техника - часы
+                    </div>
+                    <div class="content">
+                        Приём "задачи" на учёт расхода отделом... Заполнил - подтвердил - задача ушла как выполненная.
+                        Бентонит
+                        Дизель
+                        и тд
+                    </div>
+                    <div class="content">
+                        Приём "задачи" на учёт состояния отделом водопонижения. Заполнил - подтвердил - задача ушла как выполненная.
+                        Скважины и насосы
+                    </div>
+                    <div class="content">
+                        Приём "задачи" на учёт состояния отделом водопонижения. Заполнил - подтвердил - задача ушла как выполненная.
+                        Пьезометры (УГВ) - план и факт
+                        Дебит - план и факт
+                    </div>
                 </div>
-            </form>
+            </div>
+            <script>
+                const tabs = document.querySelectorAll('.tab-btn');
+                const allContent = document.querySelectorAll('.content');
+
+                const firstTab = document.querySelector('.active')
+                const line = document.querySelector('.line');
+                line.style.width = firstTab.offsetWidth + "px";
+                line.style.left = firstTab.offsetLeft + "px";
+
+                window.addEventListener('resize', function(event) {
+                    var activeTab = document.querySelector('.active');
+                    // const btnPos = activeTab.getBoundingClientRect();
+                    // const linePos  = document.getElementById('line').getBoundingClientRect();
+
+                    var rect = activeTab.getBoundingClientRect()
+                    // line.style.width = (rect.right - rect.left) + "px";
+                    scrollLeft = window.pageXOffset // || document.documentElement.scrollLeft,
+                    scrollTop = window.pageYOffset // || document.documentElement.scrollTop;
+                    console.log( { right: rect.right, left: rect.left } )
+
+                    // const relativePos = {};
+                    // relativePos.top    = linePos.top - btnPos.top,
+                    // relativePos.right  = linePos.right - btnPos.right,
+                    // relativePos.bottom = linePos.bottom - btnPos.bottom,
+                    // relativePos.left   = linePos.left - btnPos.left;
+                    // console.log(relativePos);
+                    // // something like: {top: 50, right: -100, bottom: -50, left: 100}
+
+                    // t = btnPos.top - scrollTop
+                    // l = btnPos.left - scrollLeft
+                    // line.style.top = t + "px";
+                    // line.style.left = rect.offsetLeft + "px";
+                    // line.style.top = rect.offsetTop;
+                    l =  activeTab.offsetLeft + scrollLeft
+                    t = activeTab.offsetTop + activeTab.offsetHeight + scrollTop
+                    line.style.left = l + "px";
+                    line.style.top = t + "px";
+                }, true);
+
+                tabs.forEach((tab, index) => {
+
+                    tab.addEventListener('click', (e) => {
+                        tabs.forEach( tab => {
+                            tab.classList.remove('active')
+                        });
+                        tab.classList.add('active');
+
+                        line.style.width = e.target.offsetWidth + "px";
+                        line.style.left = e.target.offsetLeft + "px";
+                        console.log(e.target);
+                        t = e.target.offsetTop + e.target.offsetHeight
+                        line.style.top = t + "px";
+
+                        allContent.forEach( content => {
+                            content.classList.remove('active')
+                        });
+                        allContent[index].classList.add('active');
+                    })
+
+                })
+            </script>
+
         </div>
     </section>
 </body>

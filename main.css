@@ -1,5 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 section.main {
-    max-width: 768px;
+    max-width: 800px;
     margin: auto;
 }
 .container {
@@ -8,30 +14,55 @@ section.main {
     align-items: center;
     /* padding: 30px; */
     flex-direction: column;
+    padding: 0 12px;
+}
+.arr {
+    width: 2%;
+    max-width: 50px;
+    background-color: antiquewhite;
+}
+.decorative {
+    margin: 6px 0;
+    border-bottom: 2px solid #bdbdbd;
 }
 form {
 
-    width: 96%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 30px;
 }
-form .inputs {
+.select {
+    width: 100%;
+}
+#test-project {
+    min-width: 120px;
+    width: 400px;
+}
+form .select-inputs {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+form .tabs-inputs {
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 120%;
+    height: 180%;
     flex-direction: column;
     gap: 10px;
 }
 h1 {
     padding: 15px;
     background-color: #f1f1f1;
-    width: 96%;
     font-size: 20px;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
 }
 input {
     height: 100%;
@@ -52,7 +83,7 @@ box-sizing: border-box;
 
 body {
 font: 16px Arial;
-background: #fff;
+background-color: #fff;
 }
 
 /* контейнер должен быть расположен относительно друг друга: */
@@ -62,7 +93,7 @@ display: inline-block;
 }
 
 input, textarea, select {
-border: 1px solid transparent;
+border: 1px solid black;
 background-color: #f1f1f1;
 padding: 10px;
 font-size: 16px;

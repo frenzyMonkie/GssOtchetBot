@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* body {
+    background-color: #deeeff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+} */
+.tabs-container{
+    width: 100%;
+    background-color: #fff;
+    padding: 0%;
+    text-align: center;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+    position: relative;
+    /* box-shadow: 0 2px 16px rgba(0, 0, 0, .1); */
+    /* border-radius:  4px; */
+}
+.tab-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    margin: 4px 0;
+}
+.tab-box .tab-btn {
+    position: relative;
+    font-size: 14px;
+    font-weight: 500;
+    color: #313131;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    background-color: #bdbdbd;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: #eee;
+    border: 1px solid transparent;
+    padding: 10px 4px;
+    width: 124px;
+    line-height: 1.5;
+    border-radius: 4px;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+    cursor: pointer;
+    margin: 3px auto;
+    /* background-color: #f1f1f1; */
+}
+.tab-box .tab-btn.active{
+    /* color: #3558a0; */
+    background-color: #bdbdbd;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.content-box {
+    margin: 12px 0;
+}
+.content-box .content {
+    display: none;
+    margin-bottom: 10px;
+    animation: moving .3s ease;
+    padding: 2px 0;
+}
+@keyframes moving {
+    from{transform:translateX(50px);opacity: 0;}
+    to{transform:translateX(0px);opacity: 1;}
+}
+.content-box .content.active{
+    display: block;
+}
+.line{
+    position: absolute;
+    /* position: relative; */
+    top: 44px;
+    /* top: -4px; */
+    left: 2px; /* Появляется вначале на таком расстоянии слева */
+    /* width: ; */
+    height: 2px;
+    background-color: #3558a0;
+    border-radius: 2px;
+    /* transition: all .12s ease-in-out; */
+}
+

@@ -1,0 +1,157 @@
+/* https://www.flaticon.com/icon-fonts-most-downloaded?weight=bold+solid&corner=straight&type=uicon */
+.fi {
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-indent: -9999px;
+
+}
+.fi-flame {
+    display: block;
+    background-image: url(../../icons/nav/fi-ss-flame.svg);
+    height: 26px;
+}
+.fi-rs-disk {
+    display: block;
+    background-image: url(../../icons/nav/save/fi-sr-disk.svg);
+    height: 26px;
+
+}
+.fi-bs-check-circle {
+    display: block;
+    background-image: url(../../icons/nav/fi-bs-check-circle.svg);
+    height: 26px;
+}
+.fi-bs-edit {
+    display: block;
+    background-image: url(../../icons/nav/fi-bs-edit.svg);
+    height: 26px;
+}
+.fi-ss-notebook {
+    display: block;
+    background-image: url(../../icons/nav/fi-ss-notebook.svg);
+    height: 26px;
+}
+.fi-ss-notebook-selected {
+    display: block;
+    background-image: url(../../icons/nav/fi-ss-notebook-selected.svg);
+    height: 26px;
+}
+.fi-sr-admin-alt {
+    display: block;
+    background-image: url(../../icons/nav/fi-sr-admin-alt.svg);
+    height: 26px;
+
+}
+.fi-sr-admin-alt-selected {
+    display: block;
+    background-image: url(../../icons/nav/fi-sr-admin-alt-selected.svg);
+    height: 26px;
+
+}
+.fi-br-convert-shapes {
+    display: block;
+    background-image: url(../../icons/nav/fi-br-convert-shapes.svg);
+    height: 26px;
+}
+.fi-br-convert-shapes-selected {
+    display: block;
+    background-image: url(../../icons/nav/fi-br-convert-shapes-selected.svg);
+    height: 26px;
+}
+.fi-rr-time-watch-calendar {
+    display: block;
+    background-image: url(../../icons/nav/fi-rr-time-watch-calendar.svg);
+    height: 26px;
+}
+.fi-rr-time-watch-calendar-selected {
+    display: block;
+    background-image: url(../../icons/nav/fi-rr-time-watch-calendar-selected.svg);
+    height: 26px;
+}
+.fi-rr-receipt {
+    display: block;
+    background-image: url(../../icons/nav/fi-rr-receipt.svg);
+    height: 26px;
+}
+.fi-rr-arrow-small-left {
+    display: block;
+    background-image: url(../../icons/nav/fi-ss-angle-small-left.svg);
+    height: 26px;
+
+}
+
+.fi-br-angle-small-right {
+    display: block;
+    background-image: url(../../icons/nav/fi-bs-angle-small-right.svg);
+    height: 18px;
+
+}
+.fi-sr-input-numeric {
+    display: block;
+    background-image: url(../../icons/nav/input-numeric.svg);
+    height: 34px;
+}
+/* .fi-br-align-justify {
+    display: block;
+    background-image: url(/icons/align-justify.svg);
+    height: 50px;
+} */
+.fi-rr-list-check {
+    height: 36px;
+}
+/* css/menu */
+.fi-br-check {
+    display: block;
+    background-image: url(../../icons/nav/selected_check.svg);
+    /* background-image: url(../../icons/nav/fi-rs-check-circle.svg);
+    background-image: url(../../icons/nav/fi-bs-check-circle.svg);
+    background-image: url(../../icons/nav/fi-ss-check-circle.svg); */
+    height: 34px;
+    opacity: .7;
+}
+.fi-br-check {
+    display: block;
+    background-image: url(../../icons/nav/selected_check-orange.svg);
+    /* background-image: url(../../icons/nav/fi-rs-check-circle.svg);
+    background-image: url(../../icons/nav/fi-bs-check-circle.svg);
+    background-image: url(../../icons/nav/fi-ss-check-circle.svg); */
+    height: 34px;
+}
+.fi-br-cross {
+    display: block;
+    background-image: url(../../icons/nav/cross.svg);
+    height: 34px;
+
+}
+.task_item_arr {
+    /* margin-left: auto; */
+}
+.icons {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Спиннер для ожидания загрузки */
+.tint {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.36);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+.spinner_2 {
+    display: block;
+    /* https://icons8.com/preloaders/en/circular/5/ */
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-indent: -9999px;
+    background-image: url(../../icons/loading/4_white.png);
+    width: 3rem;
+    height: 3rem;
+}
